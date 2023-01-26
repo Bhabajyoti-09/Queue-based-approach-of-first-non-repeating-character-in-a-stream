@@ -1,0 +1,21 @@
+class Solution {
+	public:
+		string FirstNonRepeating(string s){
+		queue<char>q;
+		int freq[26]={0};
+		string ans="";
+		for(int i=0;i<s.length();++i)
+		{
+		    q.push(s[i]);
+		    freq[s[i]-97]++;
+		    while(q.size()!=0 && freq[q.front()-97]!=1)
+		
+		    q.pop();
+		    if(q.size()!=0)
+		    ans.push_back(q.front());
+		    else 
+		    ans.push_back('#');
+		}
+		return ans;
+		}
+};
